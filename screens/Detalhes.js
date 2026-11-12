@@ -29,7 +29,7 @@ export default function Detalhes({ route, navigation }) {
           text: 'Excluir',
           style: 'destructive',
           onPress: () => {
-            navigation.navigate('Home', {
+            navigation.popTo('Home', {
               tarefaExcluida: task.id,
             });
           },
@@ -55,10 +55,12 @@ export default function Detalhes({ route, navigation }) {
         <Text style={styles.priority}>{task.priority}</Text>
 
         <Text style={styles.label}>Status</Text>
-        <Text style={[
-          styles.status,
-          task.completed ? styles.completed : styles.pending,
-        ]}>
+        <Text
+          style={[
+            styles.status,
+            task.completed ? styles.completed : styles.pending,
+          ]}
+        >
           {task.completed ? 'Concluída' : 'Pendente'}
         </Text>
       </View>

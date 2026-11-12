@@ -26,6 +26,9 @@ export default function Formulario({ navigation, route }) {
   useEffect(() => {
     navigation.setOptions({
       title: modoEdicao ? 'Editar tarefa' : 'Nova tarefa',
+      headerBackVisible: false,
+      headerLeft: () => null,
+      gestureEnabled: false,
     });
   }, [navigation, modoEdicao]);
 
@@ -44,11 +47,11 @@ export default function Formulario({ navigation, route }) {
     };
 
     if (modoEdicao) {
-      navigation.navigate('Home', {
+      navigation.popTo('Home', {
         tarefaEditada: tarefa,
       });
     } else {
-      navigation.navigate('Home', {
+      navigation.popTo('Home', {
         novaTarefa: tarefa,
       });
     }

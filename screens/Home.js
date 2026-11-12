@@ -46,7 +46,6 @@ export default function Home({ navigation, route }) {
   const [selectedFilter, setSelectedFilter] = useState('Todas');
   const [carregando, setCarregando] = useState(true);
 
-  // Carregar tarefas armazenadas
   useEffect(() => {
     let ativo = true;
 
@@ -77,7 +76,6 @@ export default function Home({ navigation, route }) {
     };
   }, []);
 
-  // Salvar tarefas automaticamente
   useEffect(() => {
     if (carregando) return;
 
@@ -95,7 +93,6 @@ export default function Home({ navigation, route }) {
     salvarTarefas();
   }, [tasks, carregando]);
 
-  // Receber cadastro, edição e exclusão
   useEffect(() => {
     if (carregando) return;
 
@@ -139,7 +136,6 @@ export default function Home({ navigation, route }) {
     navigation,
   ]);
 
-  // Concluir ou reabrir tarefa
   const alternarTarefa = (id) => {
     setTasks((tarefasAtuais) =>
       tarefasAtuais.map((task) =>
@@ -150,14 +146,12 @@ export default function Home({ navigation, route }) {
     );
   };
 
-  // Filtrar tarefas
   const tarefasFiltradas = tasks.filter((task) => {
     if (selectedFilter === 'Pendentes') return !task.completed;
     if (selectedFilter === 'Concluídas') return task.completed;
     return true;
   });
 
-  // Abrir detalhes
   const abrirDetalhes = (task) => {
     navigation.navigate('Detalhes', { task });
   };
@@ -233,6 +227,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4F5FA',
     padding: 20,
     paddingTop: 25,
+    paddingBottom: 45,
   },
   greeting: {
     fontSize: 16,

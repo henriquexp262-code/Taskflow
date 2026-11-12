@@ -15,16 +15,10 @@ export default function App() {
       <Stack.Navigator
         initialRouteName="Home"
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#5267D9',
-          },
+          headerStyle: { backgroundColor: '#5267D9' },
           headerTintColor: '#FFFFFF',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-          contentStyle: {
-            backgroundColor: '#F4F5FA',
-          },
+          headerTitleStyle: { fontWeight: 'bold' },
+          contentStyle: { backgroundColor: '#F4F5FA' },
         }}
       >
         <Stack.Screen
@@ -42,7 +36,12 @@ export default function App() {
         <Stack.Screen
           name="Formulario"
           component={Formulario}
-          options={{ title: 'Nova tarefa' }}
+          options={{
+            title: 'Nova tarefa',
+            headerBackVisible: false,
+            headerLeft: () => null,
+            gestureEnabled: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
